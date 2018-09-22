@@ -1,0 +1,24 @@
+version: '3.0'
+services:
+  web:
+    image: alexcheng/magento2
+    volumes:
+      - ./app/code:/var/www/html/app/code
+      - ./app/design/frontend:/var/www/html/app/design/frontend
+      - ./app/design/adminhtml:/var/www/html/app/design/adminhtml
+    ports:
+      - "80:80"
+    links:
+      - db
+    env_file:
+      - env
+  db:
+    image: mysql:5.6.23
+    volumes:
+      - db-data:/var/lib/mysql/data
+    ports:
+    - "3034:3306"
+    env_file:
+      - env
+volumes:
+  db-data:
