@@ -1,7 +1,7 @@
 version: '3.0'
 services:
   web:
-    image: alexcheng/magento2
+    image: wayneintacart/docker-magento2
     volumes:
       - ./app/code:/var/www/html/app/code
       - ./app/design/frontend:/var/www/html/app/design/frontend
